@@ -1,0 +1,33 @@
+﻿﻿@using QASite.Data
+@model List<Question>
+
+<div b-k8y6yzo0ym class="container">
+    <main b-k8y6yzo0ym role="main" class="pb-3">
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2" style="margin-top:100px">
+                @foreach (Question question in Model)
+                {
+                    <div class="card card-body bg-light">
+                        <h4>
+                            <a href="/home/viewquestion?id=@question.Id">
+                                @question.Title
+                            </a>
+                        </h4>
+                        <div>
+                            <span>Tags:</span>
+                            @foreach (var qt in question.QuestionsTags)
+                            {
+                                <span class="badge bg-primary">@qt.Tag.Name</span>
+                            }
+                        </div>
+                        <div style="margin-top: 10px;">
+                            @question.Text
+                        </div>
+                        <span>@question.Answers.Count answer(s)</span>
+                    </div>
+                }
+            </div>
+        </div>
+    </main>
+</div>
