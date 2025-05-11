@@ -51,7 +51,7 @@ namespace QASite.Web.Controllers
             return RedirectToAction("ViewQuestion", "Home", new { id = answer.QuestionId });
         }
         [HttpPost]
-        public IActionResult Add(Question question, List<string> tags)
+        public IActionResult AddQuestion(Question question, List<string> tags)
         {
             var userRepo = new UserRepository(_connectionString);
             var currentUser = userRepo.GetByEmail(User.Identity.Name);
